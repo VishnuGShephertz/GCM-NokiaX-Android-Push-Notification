@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.androidnokianotification"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+ <!-- Push Notifications connects to Internet services. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+ <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- Keeps the processor from sleeping when a message is received. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!--
+        Creates a custom permission so only this app can receive its messages.
+
+        NOTE: the permission *must* be called PACKAGE.permission.C2D_MESSAGE,
+        where PACKAGE is the application's package name.
+    -->
+    <permission android:name="com.example.androidnokianotification.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+    <uses-permission android:name="com.example.androidnokianotification.permission.C2D_MESSAGE" />
+
+    <uses-permission android:name="com.nokia.pushnotifications.permission.RECEIVE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.androidnokianotification.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        
+          <receiver
+            android:name="com.shephertz.app42.common.push.plugin.App42NokiaReceiver"
+            android:permission="com.nokia.pushnotifications.permission.SEND" >
+            <intent-filter>
+                <!-- Receives the actual messages. -->
+                <action android:name="com.nokia.pushnotifications.intent.RECEIVE" />
+                <!-- Receives the registration id. -->
+                <action android:name="com.nokia.pushnotifications.intent.REGISTRATION" />
+                <category android:name="com.example.androidnokianotification" />
+            </intent-filter>
+        </receiver>
+        
+        <!-- GCM BroadcastReceiver -->
+        <receiver
+            android:name="com.shephertz.app42.common.push.plugin.App42GCMReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <category android:name="com.example.androidnokianotification" />
+            </intent-filter>
+        </receiver>
+        
+        <!--
+            Application-specific subclass of PushBaseIntentService that will
+            handle received messages.
+            
+            By default, it must be named .PushIntentService, unless the
+            application uses a custom BroadcastReceiver that redefines its name.
+        -->
+        <service android:name="com.shephertz.app42.common.push.plugin.App42GCMService" />
+        <service android:name="com.shephertz.app42.common.push.plugin.App42NokiaService" />
+    </application>
+
+</manifest>
