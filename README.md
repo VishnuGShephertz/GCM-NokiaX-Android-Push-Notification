@@ -74,8 +74,7 @@ __Registration for PushNotification__ To register for Push Notification on App42
 					public void onSuccess(Object paramObject) {
 						// TODO Auto-generated method stub
 						App42Log.debug(" ..... Registeration Success ....");
-						GCMRegistrar.setRegisteredOnServer(App42API.appContext,
-								true);
+					
 					}
 
 					@Override
