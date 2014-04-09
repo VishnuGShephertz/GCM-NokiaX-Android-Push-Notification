@@ -1,10 +1,6 @@
 package com.shephertz.app42.common.push.plugin;
 
 
-/**
- * Copyright (c) 2014 Nokia Corporation and/or its subsidiary(-ies).
- * See the license text file delivered with this project for more information.
- */
 
 import android.content.Context;
 import android.content.Intent;

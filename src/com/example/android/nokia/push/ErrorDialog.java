@@ -1,6 +1,6 @@
 
 
-package com.example.androidnokianotification;
+package com.example.android.nokia.push;
 
 import android.app.AlertDialog;
 import android.content.Context;

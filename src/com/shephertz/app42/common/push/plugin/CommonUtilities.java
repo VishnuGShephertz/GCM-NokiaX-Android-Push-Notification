@@ -33,8 +33,8 @@ public final class CommonUtilities {
      * Default sender IDs. Note that the IDs are different depending on the used
      * notification service.
      */
-    private static final String DEFAULT_NNA_SENDER_ID = "newapp-service";
-    private static final String DEFAULT_GCM_SENDER_ID = "393560320714";
+    private static final String DEFAULT_NOKIA_SENDER_ID = "<Your NokiaX Sender Id>";
+    private static final String DEFAULT_GCM_SENDER_ID = "<Your GCM Sender Id>";
 
     /** 
      * @param context The application context.
@@ -51,7 +51,7 @@ public final class CommonUtilities {
         
         switch (supportedService) {
             case NokiaPushNotifications:
-                defaultSenderId = DEFAULT_NNA_SENDER_ID;
+                defaultSenderId = DEFAULT_NOKIA_SENDER_ID;
                 break;
             case GCM:
                 defaultSenderId = DEFAULT_GCM_SENDER_ID;

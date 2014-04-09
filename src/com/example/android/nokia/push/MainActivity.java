@@ -1,4 +1,4 @@
-package com.example.androidnokianotification;
+package com.example.android.nokia.push;
 
 import java.util.HashMap;
 

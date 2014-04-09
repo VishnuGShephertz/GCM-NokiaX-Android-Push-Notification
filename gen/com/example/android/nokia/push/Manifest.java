@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.example.androidnokianotification;
+package com.example.android.nokia.push;
 
 public final class Manifest {
     public static final class permission {

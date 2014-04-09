@@ -1,5 +1,5 @@
 /** Automatically generated file. DO NOT MODIFY */
-package com.example.androidnokianotification;
+package com.example.android.nokia.push;
 
 public final class BuildConfig {
     public final static boolean DEBUG = true;
