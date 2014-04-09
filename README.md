@@ -23,34 +23,34 @@ A. Replace api-Key and secret-Key that you have received in step 2 or 3 at line 
 B. Replace your user-id by which you want to register your application for PushNotification at line number 36.
 ```
 
-# GCM based Push Integration : 
-4. Create a project and get your Project Number from [google developer console](https://cloud.google.com/console/project). It would be available in Overview section of your created project.
-5.Select your created project and click on APIs option in Google developer console and enable Google Cloud Messaging for Android service.
-6.Click on Credentials(in APIs option) from left menu -> Create New Key -> Server Key.
-7.Keep Accept requests from these server IP addresses as blank and click on Create button.
-7.Go to [AppHQ] (http://apphq.shephertz.com) click on Push Notification and select Android Settings in Settings option.
-8.Select your app and provide as GCM and copy server key that is generated in Google developer console in above step and submit it.
-9.Open CommonUtilities.java file of sample project and make following changes.
+<b>GCM based Push Integration :</b><div style="clear:both"></div>
+6. Create a project and get your Project Number from [google developer console](https://cloud.google.com/console/project). It would be available in Overview section of your created project.<div style="clear:both"></div>
+7. Select your created project and click on APIs option in Google developer console and enable Google Cloud Messaging for Android service.<div style="clear:both"></div>
+8. Click on Credentials(in APIs option) from left menu -> Create New Key -> Server Key.<div style="clear:both"></div>
+9. Keep Accept requests from these server IP addresses as blank and click on Create button.<div style="clear:both"></div>
+10. Go to [AppHQ] (http://apphq.shephertz.com) click on Push Notification and select Android Settings in Settings option.<div style="clear:both"></div>
+11. Select your app and provide as GCM and copy server key that is generated in Google developer console in above step and submit it.<div style="clear:both"></div>
+12. Open CommonUtilities.java file of sample project and make following changes.
 
 ```
 A. Replace your GcmProjectNo by your Google Project No.
 ```
 
-# NokiaX based Push Integration : 
-4.Navigate to the [Nokia Notifications developer console] (https://console.push.nokia.com).Login with your credentials or register accordingly.
-5.Click on Create services button on right side.
-6.Fill necessary information to create NokiaX service and click on create button.
-7.Now you get your Authorization key of NokiaX
-7.Go to [AppHQ] (http://apphq.shephertz.com) click on Push Notification and select Android Settings in Settings option.
-8.Select your app and provide as NokiaX and copy Authorization key that is generated in above step.(please copy value of key not copy 'key=' text in that key)
-9.Open CommonUtilities.java file of sample project and make following changes.
+__NokiaX based Push Integration :__ <div style="clear:both"></div>
+13. Navigate to the [Nokia Notifications developer console] (https://console.push.nokia.com).Login with your credentials or register accordingly.<div style="clear:both"></div>
+14. Click on Create services button on right side.<div style="clear:both"></div>
+15. Fill necessary information to create NokiaX service and click on create button.<div style="clear:both"></div>
+16. Now you get your Authorization key of NokiaX.<div style="clear:both"></div>
+17. Go to [AppHQ] (http://apphq.shephertz.com) click on Push Notification and select Android Settings in Settings option.<div style="clear:both"></div>
+18. Select your app and provide as NokiaX and copy Authorization key that is generated in above step.(please copy value of key not copy 'key=' text in that key).<div style="clear:both"></div>
+19. Open CommonUtilities.java file of sample project and make following changes.
 
 ```
 A. Replace your NokiaXSenderId  by your NokiaX Sender ID created in above step.
 ```
 
 
-11.Build your android application and run on your android device.
+20.Build your android application and run on your android device.
 
 __Test and verify PushNotification from AppHQ console__
  
