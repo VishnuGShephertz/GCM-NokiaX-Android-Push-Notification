@@ -127,7 +127,7 @@ Add Receiver and Services
                 <action android:name="com.nokia.pushnotifications.intent.RECEIVE" />
                 <!-- Receives the registration id. -->
                 <action android:name="com.nokia.pushnotifications.intent.REGISTRATION" />
-                <category android:name="com.example.android.nokia.app42.push" />
+                <category android:name="<Your Package Name>" />
             </intent-filter>
         </receiver>
         
@@ -138,7 +138,7 @@ Add Receiver and Services
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-                <category android:name="com.example.android.nokia.app42.push" />
+                <category android:name="<Your Package Name>" />
             </intent-filter>
         </receiver>
         
