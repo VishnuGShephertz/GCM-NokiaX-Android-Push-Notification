@@ -29,7 +29,7 @@ B. Replace your user-id by which you want to register your application for PushN
 8. Click on Credentials(in APIs option) from left menu -> Create New Key -> Server Key.<div style="clear:both"></div>
 9. Keep Accept requests from these server IP addresses as blank and click on Create button.<div style="clear:both"></div>
 10. Go to [AppHQ] (http://apphq.shephertz.com) click on Push Notification and select Android Settings in Settings option.<div style="clear:both"></div>
-11. Select your app and provide as GCM and copy server key that is generated in Google developer console in above step and submit it.<div style="clear:both"></div>
+11. Select your app and provider as GCM and copy server key that is generated in Google developer console in above step and submit it.<div style="clear:both"></div>
 12. Open CommonUtilities.java file of sample project and make following changes.
 
 ```
@@ -42,7 +42,7 @@ __NokiaX based Push Integration :__ <div style="clear:both"></div>
 15. Fill necessary information to create NokiaX service and click on create button.<div style="clear:both"></div>
 16. Now you get your Authorization key of NokiaX.<div style="clear:both"></div>
 17. Go to [AppHQ] (http://apphq.shephertz.com) click on Push Notification and select Android Settings in Settings option.<div style="clear:both"></div>
-18. Select your app and provide as NokiaX and copy Authorization key that is generated in above step.(please copy value of key not copy 'key=' text in that key).<div style="clear:both"></div>
+18. Select your app and provider as NokiaX and copy Authorization key that is generated in above step.(please copy value of key not copy 'key=' text in that key).<div style="clear:both"></div>
 19. Open CommonUtilities.java file of sample project and make following changes.
 
 ```
