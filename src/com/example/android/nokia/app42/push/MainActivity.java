@@ -115,7 +115,6 @@ public class MainActivity extends Activity {
 							public void onSuccess(Object paramObject) {
 								// TODO Auto-generated method stub
 								App42Log.debug(" ..... Registeration Success ....");
-								GCMRegistrar.setRegisteredOnServer(App42API.appContext, true);
 							}
 							
 							@Override
