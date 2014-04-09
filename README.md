@@ -62,3 +62,96 @@ C. Send appropriate message to user by clicking Send Button.
 
 ```
 # Design Details:
+
+__Registration for PushNotification__ To register for Push Notification on App42 , you have to use method written in CommonIntentServiceImpl.java file. That register user with its registration Id whether its from GCm or NokiaX.
+ 
+```
+ private void registerWithApp42(String regId,DeviceType deviceType) {
+		App42Log.debug(" Registering on Server ....");
+		App42API.buildPushNotificationService().storeDeviceToken(
+				App42API.getLoggedInUser(), regId,deviceType, new App42CallBack() {
+					@Override
+					public void onSuccess(Object paramObject) {
+						// TODO Auto-generated method stub
+						App42Log.debug(" ..... Registeration Success ....");
+						GCMRegistrar.setRegisteredOnServer(App42API.appContext,
+								true);
+					}
+
+					@Override
+					public void onException(Exception paramException) {
+						App42Log.debug(" ..... Registeration Failed ....");
+						App42Log.debug("storeDeviceToken :  Exception : on start up "
+								+ paramException);
+
+					}
+				});
+
+	}
+
+```
+
+__Customization in Your Existing Android Project :__ To customize this plugin in your existing Android app to use common Notification Plugin , follow thses steps.
+
+```
+A. Copy com.shephertz.app42.common.push.plugin package in your project with itsjava classes.
+B. Add jar files from sample to your project.
+```
+You have to edit  AndroidManifest.xml file accordingly :
+Add permissions
+
+```
+ <uses-permission android:name="android.permission.INTERNET" />
+ <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- Keeps the processor from sleeping when a message is received. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!--
+        Creates a custom permission so only this app can receive its messages.
+
+        NOTE: the permission *must* be called PACKAGE.permission.C2D_MESSAGE,
+        where PACKAGE is the application's package name.
+    -->
+    <permission android:name="<Your Package Name>.permission.C2D_MESSAGE"    android:protectionLevel="signature" />
+    <uses-permission android:name="<Your Package Name>permission.C2D_MESSAGE" />
+
+    <uses-permission android:name="com.nokia.pushnotifications.permission.RECEIVE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+```
+Add Receiver and Services
+```
+ <receiver
+            android:name="com.shephertz.app42.common.push.plugin.App42NokiaReceiver"
+            android:permission="com.nokia.pushnotifications.permission.SEND" >
+            <intent-filter>
+                <!-- Receives the actual messages. -->
+                <action android:name="com.nokia.pushnotifications.intent.RECEIVE" />
+                <!-- Receives the registration id. -->
+                <action android:name="com.nokia.pushnotifications.intent.REGISTRATION" />
+                <category android:name="com.example.android.nokia.app42.push" />
+            </intent-filter>
+        </receiver>
+        
+        <!-- GCM BroadcastReceiver -->
+        <receiver
+            android:name="com.shephertz.app42.common.push.plugin.App42GCMReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <category android:name="com.example.android.nokia.app42.push" />
+            </intent-filter>
+        </receiver>
+        
+        <!--
+            Application-specific subclass of PushBaseIntentService that will
+            handle received messages.
+            
+            By default, it must be named .PushIntentService, unless the
+            application uses a custom BroadcastReceiver that redefines its name.
+        -->
+        <service android:name="com.shephertz.app42.common.push.plugin.App42GCMService" />
+        <service android:name="com.shephertz.app42.common.push.plugin.App42NokiaService" />
+```
+
+
+
