@@ -152,6 +152,9 @@ Add Receiver and Services
         <service android:name="com.shephertz.app42.common.push.plugin.App42GCMService" />
         <service android:name="com.shephertz.app42.common.push.plugin.App42NokiaService" />
 ```
-
+__Message Open Activity:__ You can also change the Activty on which user should navigate when PushNotification is clicked in Android change it in AndroidManifest.xml file .
+```
+<meta-data name="onMessageOpen" value="com.example.android.nokia.app42.push.MainActivity"/>
+```
 
 
