@@ -33,8 +33,8 @@ public final class CommonUtilities {
      * Default sender IDs. Note that the IDs are different depending on the used
      * notification service.
      */
-    private static final String DEFAULT_NOKIA_SENDER_ID = "<Your NokiaX Sender Id>";
-    private static final String DEFAULT_GCM_SENDER_ID = "<Your GCM Sender Id>";
+    private static final String NokiaXSenderId= "<Your NokiaX Sender Id>";
+    private static final String GcmProjectNo = "<Your GCM Sender Id>";
 
     /** 
      * @param context The application context.
@@ -54,7 +54,7 @@ public final class CommonUtilities {
                 defaultSenderId = DEFAULT_NOKIA_SENDER_ID;
                 break;
             case GCM:
-                defaultSenderId = DEFAULT_GCM_SENDER_ID;
+                defaultSenderId = GCM_PROJECT_No;
                 break;
             default:
                 defaultSenderId = "";
