@@ -6,6 +6,9 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
@@ -140,8 +143,18 @@ public class CommonIntentServiceImpl {
     {
         int icon = R.drawable.ic_stat_gcm;
         long when = System.currentTimeMillis();
-        Intent notificationIntent = new Intent(context, MainActivity.class);
-        
+        String activityName = null;
+        Intent notificationIntent=null;
+		try {
+			ApplicationInfo ai = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
+			Bundle aBundle=ai.metaData;
+			activityName= aBundle.getString("onMessageOpen");
+	         notificationIntent = new Intent(context, Class.forName(activityName));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			 notificationIntent = new Intent(context,MainActivity.class);
+		}
         if (message != null) {
             notificationIntent.putExtra("message", message);
         }
@@ -168,4 +181,5 @@ public class CommonIntentServiceImpl {
         ((NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE))
             .notify(id, notification);
     }
+   	
 }

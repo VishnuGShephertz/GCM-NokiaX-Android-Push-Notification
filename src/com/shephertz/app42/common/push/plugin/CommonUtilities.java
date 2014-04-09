@@ -12,9 +12,6 @@ import android.util.Log;
  */
 public final class CommonUtilities {
     private static final String TAG = "NNASingleAPKSample/CommonUtilities";
-    
-    
-    
     // Intent used to display a message on the screen
     public static final String DISPLAY_MESSAGE_ACTION =
             "com.nokia.push.codeveldemo.DISPLAY_MESSAGE";
@@ -27,13 +24,13 @@ public final class CommonUtilities {
     public static final String EXTRA_MESSAGE = "message";
 
     // Shared preferences key for storing the sender ID
-    private static final String PREFS_KEY_SENDER_ID = "sender_id";
+    private static final String KeySenderId = "sender_id";
 
     /*
      * Default sender IDs. Note that the IDs are different depending on the used
      * notification service.
      */
-    private static final String NokiaXSenderId= "<Your NokiaX Sender Id>";
+    private static final String NokiaXSenderId = "<Your NokiaX Sender Id>";
     private static final String GcmProjectNo = "<Your GCM Sender Id>";
 
     /** 
@@ -51,17 +48,17 @@ public final class CommonUtilities {
         
         switch (supportedService) {
             case NokiaPushNotifications:
-                defaultSenderId = DEFAULT_NOKIA_SENDER_ID;
+                defaultSenderId = NokiaXSenderId;
                 break;
             case GCM:
-                defaultSenderId = GCM_PROJECT_No;
+                defaultSenderId = GcmProjectNo;
                 break;
             default:
                 defaultSenderId = "";
                 break;
         }
         
-        return prefs.getString(PREFS_KEY_SENDER_ID, defaultSenderId);
+        return prefs.getString(KeySenderId, defaultSenderId);
     }
 
     /**
@@ -73,7 +70,7 @@ public final class CommonUtilities {
      */
     public static boolean setSenderId(Context context, String id) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.edit().putString(PREFS_KEY_SENDER_ID, id).commit();
+        return prefs.edit().putString(KeySenderId, id).commit();
     }
 
     /**
