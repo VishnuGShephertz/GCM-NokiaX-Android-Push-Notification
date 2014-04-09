@@ -11,8 +11,8 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
-import com.example.android.nokia.push.MainActivity;
-import com.example.android.nokia.push.R;
+import com.example.android.nokia.app42.push.MainActivity;
+import com.example.android.nokia.app42.push.R;
 import com.google.android.gcm.GCMRegistrar;
 import com.shephertz.app42.paas.sdk.android.App42API;
 import com.shephertz.app42.paas.sdk.android.App42CallBack;

@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.example.android.nokia.push;
+package com.example.android.nokia.app42.push;
 
 public final class R {
     public static final class attr {

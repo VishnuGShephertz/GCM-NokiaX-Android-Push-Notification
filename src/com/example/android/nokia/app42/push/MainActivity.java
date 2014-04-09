@@ -1,4 +1,4 @@
-package com.example.android.nokia.push;
+package com.example.android.nokia.app42.push;
 
 import java.util.HashMap;
 
@@ -31,9 +31,9 @@ public class MainActivity extends Activity {
 		txtMsg=(TextView)findViewById(R.id.message);
 		 App42API.initialize(
 	                this,
-	                "462302e01fed25065d6cb856ddfad422a871c05f39b4193e68a78da66eaa42b1",
-	                "60735a72502ebff2d6b4318fed646049720063e3cdbda5d647ed27d97567e179");
-		App42API.setLoggedInUser("VishnuNokia");
+	                "<Your App42 API Key>",
+	                "Your App42 Secret Key");
+		  App42API.setLoggedInUser("<Your User Id>");
 		  mNotifications = NotificationsManager.getInstance(this);
 		  if(checkIfSupported()){
 			  registerWithApp42() ;
@@ -107,7 +107,6 @@ public class MainActivity extends Activity {
 				mNotifications.register();
 				
 			} else  {
-				
 					App42Log.debug(" Registering on Server ....");
 					
 						App42API.buildPushNotificationService().storeDeviceToken(App42API.getLoggedInUser(), deviceRegId,getDeviceType(regMap.get("type")), new App42CallBack() {
