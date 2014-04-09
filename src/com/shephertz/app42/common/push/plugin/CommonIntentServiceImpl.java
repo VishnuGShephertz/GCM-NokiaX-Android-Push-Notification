@@ -1,4 +1,3 @@
-
 package com.shephertz.app42.common.push.plugin;
 
 import android.app.Notification;
@@ -59,8 +58,7 @@ public class CommonIntentServiceImpl {
 					public void onSuccess(Object paramObject) {
 						// TODO Auto-generated method stub
 						App42Log.debug(" ..... Registeration Success ....");
-						GCMRegistrar.setRegisteredOnServer(App42API.appContext,
-								true);
+					
 					}
 
 					@Override
