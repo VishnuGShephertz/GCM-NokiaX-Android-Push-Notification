@@ -1,4 +1,4 @@
-Android-NokiaX-Push-Notification
+GCM-NokiaX-Android-Push-Notification
 ================================
 
 # About Application
@@ -15,7 +15,7 @@ Here are the few easy steps to run this sample app.
 1. [Register] (https://apphq.shephertz.com/register) with App42 platform.
 2. Create an app once, you are on Quick start page after registration.
 3. If you are already registered, login to [AppHQ] (http://apphq.shephertz.com) console and create an app from App Manager Tab.
-4. Download the project from [here] (https://github.com/VishnuGShephertz/Android-NokiaX-Push-Notification/archive/master.zip) and import it in your Eclipse.
+4. Download the project from [here] (https://github.com/VishnuGShephertz/GCM-NokiaX-Android-Push-Notification/archive/master.zip) and import it in your Eclipse.
 5. Open MainActivity.java file of sample project and make following changes.
 
 ```
